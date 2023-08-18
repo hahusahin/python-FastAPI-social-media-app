@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, conint
 from datetime import datetime
 from typing import Optional
 
@@ -9,6 +9,8 @@ class PostBase(BaseModel):
     published: bool = True
 
 # Models for Requests
+
+
 class PostCreate(PostBase):
     pass
 
@@ -51,3 +53,9 @@ class Token(BaseModel):
 
 class TokenData(BaseModel):
     id: Optional[int] = None
+
+
+# Models for Vote
+class Vote(BaseModel):
+    post_id: int
+    dir: conint(le=1)
