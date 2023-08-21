@@ -4,8 +4,8 @@ from .import models
 from .database import engine
 from .routers import user, post, auth, vote
 
-
-models.Base.metadata.create_all(bind=engine)
+# Used before Alembic, no longer needed after Alembic
+# models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
